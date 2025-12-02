@@ -125,7 +125,6 @@ Each model is trained on the training set and evaluated on the test set.
 ---
 
 ## 📈 Visualizations
-
-### **Methodology Flowchart**
+![image]()
 
  
