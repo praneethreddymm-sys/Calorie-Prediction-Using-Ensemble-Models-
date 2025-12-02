@@ -125,6 +125,6 @@ Each model is trained on the training set and evaluated on the test set.
 ---
 
 ## 📈 Visualizations
-![image]()
+![image](Outputs/neyooo (1) (1).pdf)
 
  
