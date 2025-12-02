@@ -1,60 +1,131 @@
 # Calorie-Prediction-Using-Ensemble-Models-
- Developed a calorie prediction model using Linear Regression, Random Forest, XGBoost, and CatBoost, based on various influencing factors. Applied feature scaling and evaluation metrics (MAE, MSE, R²) to ensure accurate and reliable predictions.
-<h1 align="center">Forecast-Health-Insurance-Expenses</h1>
+ Developed a calorie prediction model using Linear Regression, Random Forest, XGBoost, and CatBoost, based on various influencing factors. Applied feature scaling and evaluation metrics (MAE, MSE, R²) to ensure accurate and reliable predictions.people being cared for; having numerous children will raise the costs associated with health care for the entire family. 
+ <h1 align="center">Calorie Prediction Using Regression Techniques</h1>
 
-<div align= "center">
-  <h4>Forecasting Insurance Cost using Diiferent Models.</h4><br>
- </div>
+<div align="center">
+  <h4>A Comparative Analysis of ML Regression Models for Calorie Burn Prediction</h4>
+</div>
 
-# Overview
-Health insurance cost prediction project describes the complete process for forecasting 
-medical costs and aims at developing the optimal medical cost estimate for an individual or a patient in the future 
-becoming robust and accurate. Actuarial modeling has emerged as one of the most vital protocols in the health 
-insurance industry as it aids in the determination of effective and competitive premiums that can facilitate the 
-retention and attracting of members Most of these issues are complex in nature since they involve a variety of 
-factors, such as client population’s structure, health status, and lifestyles, as well as the determinants of medical 
-service resources. Additional factors such as the breadth of coverage offered, type of plan, deductibles, and 
-customer age also affect cost estimation. Efficiency and clarity of such processes cannot be understated especially 
-after the COVID-19 pandemic.
-# Dataset Description
-The dataset which is largely sourced from Kaggle and other open datasets contains relative data for 1,338 people who were subject to possible medical insurance costs.The most important are: 
-1. Age: numerical; elderly people majorly incur higher age incidence expenses in medical care. 
-2. Gender: categorical; male or female whom sometimes the insurance companies use to measure risk differently. 
-3. BMI: numerical; body mass index which affects all who a person’s weight is deemed too large and associated with many health risks hence higher insurance rates. 
-4. Children (numerical): The number of people being cared for; having numerous children will raise the costs associated with health care for the entire family. 
-5. Smoker(categorical): A yes/no question on whether the person smokes or not with a positive correlation with the cost of healthcare. 
-6. Region(categorical): The area in which they live (northeast, northwest, southeast, southwest) possibly where they live determines the specific health risk and premium matching their area.
-# Some Screenshots
+---
 
-• The percentages in each segment represent the proportion of data points in that category. <br>
+## 📌 Overview
 
-![image](Outputs/photo_2025-02-27_16-25-44.jpg)
+This project predicts the **calories burned** by an individual during physical exercise using multiple machine learning regression algorithms.  
+The goal is to compare different regression techniques and determine the most effective model.
 
-• A person who smoke and have BMI above 30 tends to have a higher medical cost <br>
+The models evaluated:
 
-![image](Outputs/photo_2025-02-27_16-25-30.jpg)
+- **Multiple Linear Regression**
+- **Random Forest Regression**
+- **XGBoost Regression**
+- **CatBoost Regression**
 
+Performance is measured using:
 
-# Feature Importance
+- **MAE** (Mean Absolute Error)  
+- **MSE** (Mean Squared Error)  
+- **R² Score**
 
-• Importance of individual features <br>
-![image](Outputs/photo_2025-02-27_16-40-59.jpg)
+---
 
+## 📂 Dataset Description
 
+Two datasets from **Kaggle** are used:
 
+### **1. `calories.csv`**
+Contains:  
+- `User_ID`  
+- `Calories` (target variable)
 
-# Model Evaluation
+### **2. `exercise.csv`**
+Contains:  
+- `User_ID`  
+- `Gender`  
+- `Age`  
+- `Height`  
+- `Weight`  
+- `Duration` of exercise  
+- `Body Temperature`  
+- `Heart Rate`  
 
+Both datasets are **merged on `User_ID`** to create a unified dataset.
 
+---
 
-| Score | LinearRegression | Support Vector Machine | RandomForest | Gradient Boost| XGBoost|
-| ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-| Train Accuracy | 0.729 | -0.105 | 0.97 | 0.868 |0.870 |
-| Test Accuracy | 0.806 | -0.134 | 0.882 | 0.901 | 0.904 |
-| CV Score | 0.747 | 0.103 | 0.836 | 0.860 | 0.860 |
+## 🧹 Data Preprocessing
 
-• HeatMap
-![image](Outputs/photo_2025-02-27_16-25-50.jpg)
+Preprocessing steps:
 
-# Conclusion
-Model gave 90% accuracy for Medical Insurance Amount Prediction using XGBoost. This project demonstrates the effectiveness of machine learning, particularly XGBoost, in accurately predicting medical insurance costs based on key factors. It aims to enhance cost transparency and planning, benefiting both insurers and customers.
+- Dropping non-informative column: **`User_ID`**
+- Handling missing values:
+  - Numerical → **mean**
+  - Categorical → **mode**
+- Encoding categorical feature:
+  - `Gender` → numerical encoding
+- Merging datasets into a single training file
+
+---
+
+## 🧠 Features Used
+
+| Feature | Type | Description |
+|--------|------|-------------|
+| Gender | Categorical | Male/Female |
+| Age | Numerical | Age of person |
+| Height | Numerical | Height (cm) |
+| Weight | Numerical | Weight (kg) |
+| Duration | Numerical | Exercise duration (min) |
+| Body Temperature | Numerical | Temp during exercise |
+| Heart Rate | Numerical | Heartbeat during activity |
+
+🎯 **Target variable:**  
+✔ `Calories`
+
+---
+
+## 🔧 Methodology
+
+### 1️⃣ Dataset Acquisition  
+Load both datasets and merge using `User_ID`.
+
+### 2️⃣ Preprocessing  
+Cleaning, encoding categorical features, handling missing data.
+
+### 3️⃣ Model Selection  
+We trained the following regression algorithms:
+
+- **Multiple Linear Regression**  
+- **Random Forest Regression**  
+- **XGBoost Regression**  
+- **CatBoost Regression**
+
+### 4️⃣ Train-Test Split  
+Dataset split into:
+
+- **80% Training data**
+- **20% Testing data**
+
+### 5️⃣ Model Training  
+Each model is trained on the training set and evaluated on the test set.
+
+---
+
+## 📊 Performance Metrics
+
+| Model | MSE | MAE | R² Score |
+|--------|--------|--------|--------|
+| **Multiple Linear Regression** | 514.00 | 18.00 | 0.8724 |
+| **Random Forest Regression** | 268.28 | 12.88 | 0.9034 |
+| **XGBoost Regression** | 220.80 | 10.19 | 0.9403 |
+| **CatBoost Regression** | 200.90 | 9.89 | **0.9779** |
+
+✔ **CatBoost is the best performing model.**  
+❌ **Multiple Linear Regression performs the worst.**
+
+---
+
+## 📈 Visualizations
+
+### **Methodology Flowchart**
+
+ 
